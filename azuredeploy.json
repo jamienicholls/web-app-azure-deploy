@@ -654,8 +654,8 @@
             "name": "[concat(parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'), '/', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'), '-dblink')]",
             "location": "global",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]"//,
+                //"[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "registrationEnabled": false,
@@ -731,8 +731,8 @@
             "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/975c7019-c6f0-4044-bf3b-b8bbaf8146e9_', parameters('sites_app_wordpress_test_01_name'), 'AppSubnet')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]"//,
+                //"[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]"
             ],
             "properties": {
                 "vnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
@@ -745,9 +745,9 @@
             "name": "[parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_wordpress_test_01_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'))]"
+                //"[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_wordpress_test_01_ip_name'))]",
+                //"[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]",
+                //"[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'))]"
             ],
             "kind": "Regular",
             "properties": {
@@ -807,10 +807,10 @@
             "name": "[parameters('virtualNetworks_app_wordpress_test_01Vnet_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01Subnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]"
+               // "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01Subnet')]",
+                //"[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
+                //"[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
+                //"[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]"
             ],
             "properties": {
                 "addressSpace": {
