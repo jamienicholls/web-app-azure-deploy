@@ -2,40 +2,40 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sites_app_masseysites_test_01_name": {
-            "defaultValue": "app-masseysites-test-01",
+        "sites_app_wordpress_test_01_name": {
+            "defaultValue": "app-wordpress-test-01",
             "type": "String"
         },
-        "serverfarms_ASP_rgmasseysitestest01_af1b_name": {
-            "defaultValue": "ASP-rgmasseysitestest01-af1b",
+        "serverfarms_ASP_rgwordpresstest01_af1b_name": {
+            "defaultValue": "ASP-rgwordpresstest01-af1b",
             "type": "String"
         },
-        "virtualMachines_vm_2_masseysites_test_01_name": {
-            "defaultValue": "vm-2-masseysites-test-01",
+        "virtualMachines_vm_2_wordpress_test_01_name": {
+            "defaultValue": "vm-2-wordpress-test-01",
             "type": "String"
         },
-        "sshPublicKeys_vm_2_masseysites_test_01_key_name": {
-            "defaultValue": "vm-2-masseysites-test-01_key",
+        "sshPublicKeys_vm_2_wordpress_test_01_key_name": {
+            "defaultValue": "vm-2-wordpress-test-01_key",
             "type": "String"
         },
-        "virtualNetworks_app_masseysites_test_01Vnet_name": {
-            "defaultValue": "app-masseysites-test-01Vnet",
+        "virtualNetworks_app_wordpress_test_01Vnet_name": {
+            "defaultValue": "app-wordpress-test-01Vnet",
             "type": "String"
         },
-        "flexibleServers_mysql_masseysites_test_01_name": {
-            "defaultValue": "mysql-masseysites-test-01",
+        "flexibleServers_mysql_wordpress_test_01_name": {
+            "defaultValue": "mysql-wordpress-test-01",
             "type": "String"
         },
-        "publicIPAddresses_vm_2_masseysites_test_01_ip_name": {
-            "defaultValue": "vm-2-masseysites-test-01-ip",
+        "publicIPAddresses_vm_2_wordpress_test_01_ip_name": {
+            "defaultValue": "vm-2-wordpress-test-01-ip",
             "type": "String"
         },
-        "networkInterfaces_vm_2_masseysites_test_01781_z2_name": {
-            "defaultValue": "vm-2-masseysites-test-01781_z2",
+        "networkInterfaces_vm_2_wordpress_test_01781_z2_name": {
+            "defaultValue": "vm-2-wordpress-test-01781_z2",
             "type": "String"
         },
-        "networkSecurityGroups_vm_2_masseysites_test_01_nsg_name": {
-            "defaultValue": "vm-2-masseysites-test-01-nsg",
+        "networkSecurityGroups_vm_2_wordpress_test_01_nsg_name": {
+            "defaultValue": "vm-2-wordpress-test-01-nsg",
             "type": "String"
         },
         "privateDnsZones_privatelink_mysql_database_azure_com_name": {
@@ -48,7 +48,7 @@
         {
             "type": "Microsoft.Compute/sshPublicKeys",
             "apiVersion": "2022-03-01",
-            "name": "[parameters('sshPublicKeys_vm_2_masseysites_test_01_key_name')]",
+            "name": "[parameters('sshPublicKeys_vm_2_wordpress_test_01_key_name')]",
             "location": "australiaeast",
             "properties": {
                 "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDqTvQubi8g0W6aI5K/gEl1My2zJyVcNLkpdHD3GkbO7K9kArqVm/ARiLTqJC5pZ4RXj+nFzBsIzvZB1GzyuRvLG0wcV99u453FYl9dRyNJ8UfSegOK3CBul5ALROWWcwdUsStv1pBhsHoi/mxPxRBfynRBVeU8Hl3VV0Rhm1DIGCCHeNEqoyyaYQ9UZ0xwJyQQ/0fsrZL7TO4vxyS/TtY80QG1HV5Jx7SnrIANYlgJGODy+UtZt+22lNDWEZOu3EZGAzWibprDIpC9E4FU9eHDTd10YBGf968yBIaC/Gxw9lXXgkqCIGnu7+OENKjH/WHcmu6IMSSPZ3dup28AsIsn+25KCTIq0KCkzeXP1ZHm3cA+7RvHKD3BtibdMv1yeVpGsx+fj37Fe+Exqi6LYH16hqEinkZE7jfvwfa0JmMX3OouwXqKBX/h0M5DC6jYWPV2udFrl+DG98ZXuwanbIhKiexV6/+UNe2PYysq5MrgXQRn7HDwsorbkhsH7SH2J7E= generated-by-azure"
@@ -72,7 +72,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2022-01-01",
-            "name": "[parameters('publicIPAddresses_vm_2_masseysites_test_01_ip_name')]",
+            "name": "[parameters('publicIPAddresses_vm_2_wordpress_test_01_ip_name')]",
             "location": "australiaeast",
             "sku": {
                 "name": "Standard",
@@ -92,7 +92,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2022-03-01",
-            "name": "[parameters('serverfarms_ASP_rgmasseysitestest01_af1b_name')]",
+            "name": "[parameters('serverfarms_ASP_rgwordpresstest01_af1b_name')]",
             "location": "Australia East",
             "sku": {
                 "name": "P1v2",
@@ -118,10 +118,10 @@
         {
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2022-03-01",
-            "name": "[parameters('virtualMachines_vm_2_masseysites_test_01_name')]",
+            "name": "[parameters('virtualMachines_vm_2_wordpress_test_01_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_masseysites_test_01781_z2_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name'))]"
             ],
             "zones": [
                 "2"
@@ -139,12 +139,12 @@
                     },
                     "osDisk": {
                         "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_vm_2_masseysites_test_01_name'), '_OsDisk_1_cab932e512f549f593aa883908110819')]",
+                        "name": "[concat(parameters('virtualMachines_vm_2_wordpress_test_01_name'), '_OsDisk_1_cab932e512f549f593aa883908110819')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS",
-                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_vm_2_masseysites_test_01_name'), '_OsDisk_1_cab932e512f549f593aa883908110819'))]"
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_vm_2_wordpress_test_01_name'), '_OsDisk_1_cab932e512f549f593aa883908110819'))]"
                         },
                         "deleteOption": "Delete",
                         "diskSizeGB": 30
@@ -152,14 +152,14 @@
                     "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_vm_2_masseysites_test_01_name')]",
-                    "adminUsername": "bastmasseysites",
+                    "computerName": "[parameters('virtualMachines_vm_2_wordpress_test_01_name')]",
+                    "adminUsername": "bastwordpress",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": true,
                         "ssh": {
                             "publicKeys": [
                                 {
-                                    "path": "/home/bastmasseysites/.ssh/authorized_keys",
+                                    "path": "/home/bastwordpress/.ssh/authorized_keys",
                                     "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDqTvQubi8g0W6aI5K/gEl1My2zJyVcNLkpdHD3GkbO7K9kArqVm/ARiLTqJC5pZ4RXj+nFzBsIzvZB1GzyuRvLG0wcV99u453FYl9dRyNJ8UfSegOK3CBul5ALROWWcwdUsStv1pBhsHoi/mxPxRBfynRBVeU8Hl3VV0Rhm1DIGCCHeNEqoyyaYQ9UZ0xwJyQQ/0fsrZL7TO4vxyS/TtY80QG1HV5Jx7SnrIANYlgJGODy+UtZt+22lNDWEZOu3EZGAzWibprDIpC9E4FU9eHDTd10YBGf968yBIaC/Gxw9lXXgkqCIGnu7+OENKjH/WHcmu6IMSSPZ3dup28AsIsn+25KCTIq0KCkzeXP1ZHm3cA+7RvHKD3BtibdMv1yeVpGsx+fj37Fe+Exqi6LYH16hqEinkZE7jfvwfa0JmMX3OouwXqKBX/h0M5DC6jYWPV2udFrl+DG98ZXuwanbIhKiexV6/+UNe2PYysq5MrgXQRn7HDwsorbkhsH7SH2J7E= generated-by-azure"
                                 }
                             ]
@@ -177,7 +177,7 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_masseysites_test_01781_z2_name'))]",
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name'))]",
                             "properties": {
                                 "deleteOption": "Detach"
                             }
@@ -194,65 +194,65 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221125t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221125t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221126t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221126t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221127t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221127t003315-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221128t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221128t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221129t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221129t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221130t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221130t003316-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/backups",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/daily-20221201t003317-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/daily-20221201t003317-a86d3685-7fb4-4e06-bb55-61916d0a3065')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ]
         },
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/information_schema')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/information_schema')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "utf8",
@@ -262,9 +262,9 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/masseysites')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/wordpress')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "utf8",
@@ -274,9 +274,9 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/mysql')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/mysql')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "latin1",
@@ -286,9 +286,9 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/', parameters('flexibleServers_mysql_masseysites_test_01_name'), '-database')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/', parameters('flexibleServers_mysql_wordpress_test_01_name'), '-database')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "utf8",
@@ -298,9 +298,9 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/performance_schema')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/performance_schema')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "utf8",
@@ -310,9 +310,9 @@
         {
             "type": "Microsoft.DBforMySQL/flexibleServers/databases",
             "apiVersion": "2021-12-01-preview",
-            "name": "[concat(parameters('flexibleServers_mysql_masseysites_test_01_name'), '/sys')]",
+            "name": "[concat(parameters('flexibleServers_mysql_wordpress_test_01_name'), '/sys')]",
             "dependsOn": [
-                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.DBforMySQL/flexibleServers', parameters('flexibleServers_mysql_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "charset": "utf8",
@@ -322,16 +322,16 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2022-01-01",
-            "name": "[parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'), 'SSH')]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'), 'SSH')]"
             ],
             "properties": {
                 "securityRules": [
                     {
                         "name": "SSH",
-                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'), 'SSH')]",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'), 'SSH')]",
                         "type": "Microsoft.Network/networkSecurityGroups/securityRules",
                         "properties": {
                             "protocol": "TCP",
@@ -354,9 +354,9 @@
         {
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'), '/SSH')]",
+            "name": "[concat(parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'), '/SSH')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'))]"
             ],
             "properties": {
                 "protocol": "TCP",
@@ -376,7 +376,7 @@
         {
             "type": "Microsoft.Network/privateDnsZones/A",
             "apiVersion": "2018-09-01",
-            "name": "[concat(parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'), '/mysql-masseysites-test-01')]",
+            "name": "[concat(parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'), '/mysql-wordpress-test-01')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]"
             ],
@@ -412,9 +412,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), '/app-masseysites-test-01AppSubnet')]",
+            "name": "[concat(parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), '/app-wordpress-test-01AppSubnet')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "addressPrefix": "10.0.2.0/24",
@@ -422,7 +422,7 @@
                 "delegations": [
                     {
                         "name": "dlg-appServices",
-                        "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet'), '/delegations/dlg-appServices')]",
+                        "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet'), '/delegations/dlg-appServices')]",
                         "properties": {
                             "serviceName": "Microsoft.Web/serverfarms"
                         },
@@ -436,9 +436,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), '/app-masseysites-test-01DbSubnet')]",
+            "name": "[concat(parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), '/app-wordpress-test-01DbSubnet')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "addressPrefix": "10.0.1.0/24",
@@ -446,7 +446,7 @@
                 "delegations": [
                     {
                         "name": "dlg-database",
-                        "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet'), '/delegations/dlg-database')]",
+                        "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet'), '/delegations/dlg-database')]",
                         "properties": {
                             "serviceName": "Microsoft.DBforMySQL/flexibleServers"
                         },
@@ -460,9 +460,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), '/app-masseysites-test-01Subnet')]",
+            "name": "[concat(parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), '/app-wordpress-test-01Subnet')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "addressPrefix": "10.0.0.0/24",
@@ -475,9 +475,9 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2022-01-01",
-            "name": "[concat(parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), '/app-masseysites-test-01VmSubset')]",
+            "name": "[concat(parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), '/app-wordpress-test-01VmSubset')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "addressPrefix": "10.0.3.0/29",
@@ -490,10 +490,10 @@
         {
             "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
             "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/ftp')]",
+            "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/ftp')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "allow": true
@@ -502,10 +502,10 @@
         {
             "type": "Microsoft.Web/sites/basicPublishingCredentialsPolicies",
             "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/scm')]",
+            "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/scm')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "allow": true
@@ -514,10 +514,10 @@
         {
             "type": "Microsoft.Web/sites/config",
             "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/web')]",
+            "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/web')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]"
             ],
             "properties": {
                 "numberOfWorkers": 1,
@@ -541,7 +541,7 @@
                 "acrUseManagedIdentityCreds": false,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
-                "publishingUsername": "$app-masseysites-test-01",
+                "publishingUsername": "$app-wordpress-test-01",
                 "scmType": "None",
                 "use32BitWorkerProcess": true,
                 "webSocketsEnabled": false,
@@ -560,7 +560,7 @@
                     "rampUpRules": []
                 },
                 "autoHealEnabled": false,
-                "vnetName": "975c7019-c6f0-4044-bf3b-b8bbaf8146e9_app-masseysites-test-01AppSubnet",
+                "vnetName": "975c7019-c6f0-4044-bf3b-b8bbaf8146e9_app-wordpress-test-01AppSubnet",
                 "vnetRouteAllEnabled": true,
                 "vnetPrivatePortsCount": 0,
                 "localMySqlEnabled": false,
@@ -596,1262 +596,23 @@
         {
             "type": "Microsoft.Web/sites/hostNameBindings",
             "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/', parameters('sites_app_masseysites_test_01_name'), '.azurewebsites.net')]",
+            "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/', parameters('sites_app_wordpress_test_01_name'), '.azurewebsites.net')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]"
             ],
             "properties": {
-                "siteName": "app-masseysites-test-01",
+                "siteName": "app-wordpress-test-01",
                 "hostNameType": "Verified"
             }
         },
         {
-            "type": "Microsoft.Web/sites/hostNameBindings",
-            "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/sites-test-01.massey.ac.nz')]",
-            "location": "Australia East",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ],
-            "properties": {
-                "siteName": "app-masseysites-test-01",
-                "hostNameType": "Verified",
-                "sslState": "SniEnabled",
-                "thumbprint": "289BBFB1BC93D49B1EABC452689F13F7BB4585C7"
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T03_14_58_1800961')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T06_14_58_3414949')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T09_14_58_5242295')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T12_14_58_7014085')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T17_14_59_0058412')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-18T21_14_59_2479089')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T00_14_59_4303363')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T03_14_59_6073091')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T06_14_59_7960616')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T09_14_59_9829633')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T12_15_00_1654372')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T17_15_00_4656306')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-19T21_15_00_7220270')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T00_15_00_8987802')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T03_15_01_0576823')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T06_15_01_2406155')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T09_15_01_4155119')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T12_15_01_5891952')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T17_15_01_8858140')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-20T21_15_02_1124195')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T00_15_02_3042657')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T03_15_02_4584092')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T06_15_02_6416465')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T09_15_02_8360746')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T12_15_02_9988548')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-21T21_15_03_5107150')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T00_15_03_7016710')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T03_15_03_9231094')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T06_15_04_0472093')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T09_15_04_2110126')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T12_15_04_3900033')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-22T22_15_05_0009852')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-23T01_15_05_1789155')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-23T04_15_05_3468525')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-23T07_15_05_5463145')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-23T12_15_05_7865705')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-23T22_15_06_3341336')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-24T01_15_06_5156161')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-24T04_15_06_6876066')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-24T07_15_06_8709123')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-24T12_15_08_0629436')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-24T22_15_08_6402234')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-25T01_15_08_8075488')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-25T04_15_09_4492099')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-25T07_15_09_6229409')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-25T12_15_09_9153894')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-25T22_15_10_5109031')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T01_15_11_0446686')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T04_15_10_8538706')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T07_15_11_0167916')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T12_15_11_2999828')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T20_15_11_7810435')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T21_15_11_8393468')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T22_15_11_8983834')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-26T23_15_11_9584323')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T00_15_12_0194233')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T01_15_12_0785695')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T02_15_12_1625742')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T03_15_12_2086504')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T04_15_12_2649790')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T05_15_12_3200307')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T06_15_12_3928833')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T07_15_12_4517552')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T08_15_12_5193658')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T09_15_12_5732227')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T10_15_12_6420200')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T11_15_12_6946155')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T12_15_12_7795873')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T13_15_12_8163097')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T14_15_12_8702262')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T15_15_12_9378895')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T16_15_12_9916976')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T17_15_13_0485948')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T18_15_13_1094162')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T19_15_13_1615292')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T20_15_13_2183927')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T21_15_13_2680322')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T22_15_13_3353202')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-27T23_15_13_3886818')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T00_15_13_4436139')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T01_15_13_5053474')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T02_15_13_5632789')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T03_15_13_6191699')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T04_15_13_6779585')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T05_15_13_7286778')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T06_15_13_7916117')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T07_15_13_8510641')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T08_15_13_9052510')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T09_15_13_9661028')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T10_15_14_0270472')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T11_15_14_0856087')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T12_15_14_1520533')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T13_15_14_2075880')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T14_15_14_2718638')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T15_15_14_3360758')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T16_15_14_3968982')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T17_15_14_4502639')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T18_15_14_6329384')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T19_15_14_5709611')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T20_15_14_6285631')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T21_15_14_6856043')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T22_15_14_7388373')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-28T23_15_14_8118050')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T00_15_14_8846454')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T01_15_14_9383853')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T02_15_14_9912350')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T03_15_15_0528421')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T04_15_15_1037166')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T05_15_15_1732488')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T06_15_15_2372504')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T07_15_15_2966964')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T08_15_15_3575044')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T09_15_15_4364158')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T10_15_15_4881586')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T11_15_15_5522645')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T12_15_15_6081219')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T13_15_15_6616561')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T14_15_15_7283316')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T15_15_15_7830819')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T16_15_15_8337122')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T17_15_15_8952596')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T18_15_15_9469184')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T19_15_16_0055302')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T20_15_16_0641546')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T21_15_16_1308239')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T22_15_16_1836494')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-29T23_15_16_2424032')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T00_15_16_2983553')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T01_15_16_7836810')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T02_15_16_8436724')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T03_15_16_9072687')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T04_15_16_9734581')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T05_15_17_0287851')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T06_15_17_0845229')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T07_15_17_1518713')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T08_15_17_2075274')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T09_15_17_2603184')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T10_15_17_3215237')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T11_15_17_3772542')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T12_15_17_4270934')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T13_15_17_4795208')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T14_15_17_5434247')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T15_15_17_6002448')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T16_15_17_6508924')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T17_15_18_2715401')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T18_15_18_3301812')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T19_15_18_3859794')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T20_15_18_4510745')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T21_15_18_5039663')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T22_15_18_5647577')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-11-30T23_15_18_6164423')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-12-01T00_15_18_6807372')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
-            "type": "Microsoft.Web/sites/snapshots",
-            "apiVersion": "2015-08-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/2022-12-01T01_15_18_7414914')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]"
-            ]
-        },
-        {
             "type": "Microsoft.DBforMySQL/flexibleServers",
             "apiVersion": "2021-12-01-preview",
-            "name": "[parameters('flexibleServers_mysql_masseysites_test_01_name')]",
+            "name": "[parameters('flexibleServers_mysql_wordpress_test_01_name')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
                 "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]"
             ],
             "sku": {
@@ -1875,7 +636,7 @@
                 },
                 "replicationRole": "None",
                 "network": {
-                    "delegatedSubnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet')]",
+                    "delegatedSubnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
                     "privateDnsZoneResourceId": "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]"
                 },
                 "backup": {
@@ -1894,30 +655,30 @@
             "location": "global",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateDnsZones_privatelink_mysql_database_azure_com_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
             ],
             "properties": {
                 "registrationEnabled": false,
                 "virtualNetwork": {
-                    "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'))]"
+                    "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'))]"
                 }
             }
         },
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2022-03-01",
-            "name": "[parameters('sites_app_masseysites_test_01_name')]",
+            "name": "[parameters('sites_app_wordpress_test_01_name')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_rgmasseysitestest01_af1b_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet')]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_rgwordpresstest01_af1b_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]"
             ],
             "kind": "app,linux",
             "properties": {
                 "enabled": true,
                 "hostNameSslStates": [
                     {
-                        "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Standard"
                     },
@@ -1928,12 +689,12 @@
                         "hostType": "Standard"
                     },
                     {
-                        "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '.scm.azurewebsites.net')]",
+                        "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '.scm.azurewebsites.net')]",
                         "sslState": "Disabled",
                         "hostType": "Repository"
                     }
                 ],
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_rgmasseysitestest01_af1b_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_rgwordpresstest01_af1b_name'))]",
                 "reserved": true,
                 "isXenon": false,
                 "hyperV": false,
@@ -1960,40 +721,40 @@
                 "httpsOnly": true,
                 "redundancyMode": "None",
                 "storageAccountRequired": false,
-                "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), concat(parameters('sites_app_masseysites_test_01_name'), 'AppSubnet'))]",
+                "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), concat(parameters('sites_app_wordpress_test_01_name'), 'AppSubnet'))]",
                 "keyVaultReferenceIdentity": "SystemAssigned"
             }
         },
         {
             "type": "Microsoft.Web/sites/virtualNetworkConnections",
             "apiVersion": "2022-03-01",
-            "name": "[concat(parameters('sites_app_masseysites_test_01_name'), '/975c7019-c6f0-4044-bf3b-b8bbaf8146e9_', parameters('sites_app_masseysites_test_01_name'), 'AppSubnet')]",
+            "name": "[concat(parameters('sites_app_wordpress_test_01_name'), '/975c7019-c6f0-4044-bf3b-b8bbaf8146e9_', parameters('sites_app_wordpress_test_01_name'), 'AppSubnet')]",
             "location": "Australia East",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_app_masseysites_test_01_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet')]"
+                "[resourceId('Microsoft.Web/sites', parameters('sites_app_wordpress_test_01_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]"
             ],
             "properties": {
-                "vnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet')]",
+                "vnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
                 "isSwift": true
             }
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2022-01-01",
-            "name": "[parameters('networkInterfaces_vm_2_masseysites_test_01781_z2_name')]",
+            "name": "[parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_masseysites_test_01_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01VmSubset')]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_wordpress_test_01_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'))]"
             ],
             "kind": "Regular",
             "properties": {
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_masseysites_test_01781_z2_name')), '/ipConfigurations/ipconfig1')]",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name')), '/ipConfigurations/ipconfig1')]",
                         "etag": "W/\"dcfc6528-396d-43b4-98b6-eba4d7f954ca\"",
                         "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
                         "properties": {
@@ -2001,8 +762,8 @@
                             "privateIPAddress": "10.0.3.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "name": "vm-2-masseysites-test-01-ip",
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_masseysites_test_01_ip_name'))]",
+                                "name": "vm-2-wordpress-test-01-ip",
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_2_wordpress_test_01_ip_name'))]",
                                 "properties": {
                                     "provisioningState": "Succeeded",
                                     "resourceGuid": "c695aa80-e85e-4cad-ac77-c97f18a1e51b",
@@ -2011,7 +772,7 @@
                                     "idleTimeoutInMinutes": 4,
                                     "ipTags": [],
                                     "ipConfiguration": {
-                                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_masseysites_test_01781_z2_name')), '/ipConfigurations/ipconfig1')]"
+                                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_2_wordpress_test_01781_z2_name')), '/ipConfigurations/ipconfig1')]"
                                     },
                                     "deleteOption": "Detach"
                                 },
@@ -2022,7 +783,7 @@
                                 }
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01VmSubset')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -2035,7 +796,7 @@
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_masseysites_test_01_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'))]"
                 },
                 "nicType": "Standard"
             }
@@ -2043,13 +804,13 @@
         {
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2022-01-01",
-            "name": "[parameters('virtualNetworks_app_masseysites_test_01Vnet_name')]",
+            "name": "[parameters('virtualNetworks_app_wordpress_test_01Vnet_name')]",
             "location": "australiaeast",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01Subnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet')]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01VmSubset')]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01Subnet')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]"
             ],
             "properties": {
                 "addressSpace": {
@@ -2059,8 +820,8 @@
                 },
                 "subnets": [
                     {
-                        "name": "app-masseysites-test-01Subnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01Subnet')]",
+                        "name": "app-wordpress-test-01Subnet",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01Subnet')]",
                         "properties": {
                             "addressPrefix": "10.0.0.0/24",
                             "serviceEndpoints": [],
@@ -2071,15 +832,15 @@
                         "type": "Microsoft.Network/virtualNetworks/subnets"
                     },
                     {
-                        "name": "app-masseysites-test-01DbSubnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet')]",
+                        "name": "app-wordpress-test-01DbSubnet",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet')]",
                         "properties": {
                             "addressPrefix": "10.0.1.0/24",
                             "serviceEndpoints": [],
                             "delegations": [
                                 {
                                     "name": "dlg-database",
-                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01DbSubnet'), '/delegations/dlg-database')]",
+                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01DbSubnet'), '/delegations/dlg-database')]",
                                     "properties": {
                                         "serviceName": "Microsoft.DBforMySQL/flexibleServers"
                                     },
@@ -2092,15 +853,15 @@
                         "type": "Microsoft.Network/virtualNetworks/subnets"
                     },
                     {
-                        "name": "app-masseysites-test-01AppSubnet",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet')]",
+                        "name": "app-wordpress-test-01AppSubnet",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet')]",
                         "properties": {
                             "addressPrefix": "10.0.2.0/24",
                             "serviceEndpoints": [],
                             "delegations": [
                                 {
                                     "name": "dlg-appServices",
-                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01AppSubnet'), '/delegations/dlg-appServices')]",
+                                    "id": "[concat(resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01AppSubnet'), '/delegations/dlg-appServices')]",
                                     "properties": {
                                         "serviceName": "Microsoft.Web/serverfarms"
                                     },
@@ -2113,8 +874,8 @@
                         "type": "Microsoft.Network/virtualNetworks/subnets"
                     },
                     {
-                        "name": "app-masseysites-test-01VmSubset",
-                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_masseysites_test_01Vnet_name'), 'app-masseysites-test-01VmSubset')]",
+                        "name": "app-wordpress-test-01VmSubset",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_app_wordpress_test_01Vnet_name'), 'app-wordpress-test-01VmSubset')]",
                         "properties": {
                             "addressPrefix": "10.0.3.0/29",
                             "serviceEndpoints": [],
