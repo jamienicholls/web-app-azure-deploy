@@ -324,9 +324,9 @@
             "apiVersion": "2022-01-01",
             "name": "[parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name')]",
             "location": "australiaeast",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'), 'SSH')]"
-            ],
+            // "dependsOn": [
+            //     "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_vm_2_wordpress_test_01_nsg_name'), 'SSH')]"
+            // ],
             "properties": {
                 "securityRules": [
                     {
