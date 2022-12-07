@@ -1,12 +1,114 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "adminUsername": {
-            "value": "GEN-UNIQUE"
+        "subscriptionId": {
+            "value": "74197e6c-c659-44c9-b73e-861e5efafe8a"
         },
-        "adminPasswordOrKey": {
-            "value": "GEN-SSH-PUB-KEY"
+        "name": {
+            "value": "jjjjj"
+        },
+        "location": {
+            "value": "Australia East"
+        },
+        "hostingPlanName": {
+            "value": "ASP-jamietestwp-8991"
+        },
+        "serverFarmResourceGroup": {
+            "value": "jamie-test-wp"
+        },
+        "databaseName": {
+            "value": "jjjjj-database"
+        },
+        "sku": {
+            "value": "PremiumV2"
+        },
+        "skuCode": {
+            "value": "P1v2"
+        },
+        "workerSize": {
+            "value": ""
+        },
+        "workerSizeId": {
+            "value": ""
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "linuxFxVersion": {
+            "value": "PHP|8.1"
+        },
+        "storageSizeGB": {
+            "value": 128
+        },
+        "backupRetentionDays": {
+            "value": 7
+        },
+        "geoRedundantBackup": {
+            "value": "Disabled"
+        },
+        "vmName": {
+            "value": "Standard_D2ds_v4"
+        },
+        "vCores": {
+            "value": 2
+        },
+        "storageAutogrow": {
+            "value": "Enabled"
+        },
+        "storageIops": {
+            "value": 700
+        },
+        "publicNetworkAccess": {
+            "value": "Disabled"
+        },
+        "serverName": {
+            "value": "jjjjj-server"
+        },
+        "serverUsername": {
+            "value": "eblyfpmdln"
+        },
+        "serverPassword": {
+            "value": null
+        },
+        "serverEdition": {
+            "value": "GeneralPurpose"
+        },
+        "collation": {
+            "value": "utf8_general_ci"
+        },
+        "charset": {
+            "value": "utf8"
+        },
+        "vnetName": {
+            "value": "jjjjjVnet"
+        },
+        "privateEndpointSubnet": {
+            "value": "jjjjjSubnet"
+        },
+        "subnetForApp": {
+            "value": "jjjjjAppSubnet"
+        },
+        "subnetForDb": {
+            "value": "jjjjjDbSubnet"
+        },
+        "privateEndpointNameForApp": {
+            "value": "jjjjjAppEndpoint"
+        },
+        "privateEndpointNameForDb": {
+            "value": ""
+        },
+        "privateDnsZoneNameForApp": {
+            "value": "privatelink.azurewebsites.net"
+        },
+        "privateDnsZoneNameForDb": {
+            "value": "privatelink.mysql.database.azure.com"
+        },
+        "isVnetEnabled": {
+            "value": true
+        },
+        "isPrivateEndpointForAppEnabled": {
+            "value": false
         }
     }
 }
