@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.13.1.58284",
-      "templateHash": "11153122926167967800"
+      "templateHash": "7672800685970585722"
     }
   },
   "parameters": {
@@ -136,18 +136,6 @@
   },
   "resources": [
     {
-      "type": "Microsoft.Compute/sshPublicKeys",
-      "apiVersion": "2022-08-01",
-      "name": "[parameters('sshPublicKeys_vm_bastmasseysites_test_02_key_name')]",
-      "location": "australiaeast",
-      "tags": {
-        "Environment": "test"
-      },
-      "properties": {
-        "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsJYozV/pwCbyIc2HPkrKZGTzl45SNmog72DEQbEqdsf95QeYBpE04dfAIMvlsruJZbMv3KjRvl4+juv0aRrwlo6T9JMBye2HFYqesx7zd1BvYsE6aptpkHQgdYKnW+7BCHdO8zrLKbSH/mu/gcm3PoY/eQR6BUIY8lc7wcO5AvzZ91gkH4ezsgqRJHKLF49CYg081D3oLsj822Fpe7uWHo9D98gji/mvyCuMqspkYHHn4XkLJUsMs4iv2uSML/1f7z0lEpaGk6wOJ8V67/Csg2Kus1KF//tfIQSrpEbMVzt4fZ6i2ebfe8DsjWEr2o1C7LpmoXWJc5d2duzSBAMTQxVHXYldWNIjes28wV/fjHYNERpHGoq6XPpt6m38eKBUAwB59YddeLvsflTyI+LCQ7IvLewpfQhZZMkvEUukT16PVg8SxjdeytE+3Fuf7x6cKorDTfzTTAYPsCYgn5XwHxr/72XXa/VYctw+W59jxUMrt53kbL7kMbsnVA4sMUHk= generated-by-azure"
-      }
-    },
-    {
       "type": "Microsoft.KeyVault/vaults",
       "apiVersion": "2022-07-01",
       "name": "[parameters('vaults_kvmasseysitestest02_name')]",
@@ -254,29 +242,6 @@
         "numberOfVirtualNetworkLinks": 0,
         "numberOfVirtualNetworkLinksWithRegistration": 0,
         "provisioningState": "Succeeded"
-      }
-    },
-    {
-      "type": "Microsoft.Network/publicIPAddresses",
-      "apiVersion": "2022-05-01",
-      "name": "[parameters('publicIPAddresses_vm_bastmasseysites_test_02_ip_name')]",
-      "location": "australiaeast",
-      "tags": {
-        "Environment": "test"
-      },
-      "sku": {
-        "name": "Standard",
-        "tier": "Regional"
-      },
-      "zones": [
-        "2"
-      ],
-      "properties": {
-        "ipAddress": "20.213.180.174",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Static",
-        "idleTimeoutInMinutes": 4,
-        "ipTags": []
       }
     },
     {
@@ -429,91 +394,6 @@
       }
     },
     {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-08-01",
-      "name": "[parameters('virtualMachines_vm_bastmasseysites_test_02_name')]",
-      "location": "australiaeast",
-      "tags": {
-        "Environment": "test"
-      },
-      "zones": [
-        "2"
-      ],
-      "plan": {
-        "name": "cis-ubuntu2004-l1",
-        "product": "cis-ubuntu-linux-2004-l1",
-        "publisher": "center-for-internet-security-inc"
-      },
-      "properties": {
-        "hardwareProfile": {
-          "vmSize": "Standard_B1s"
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "center-for-internet-security-inc",
-            "offer": "cis-ubuntu-linux-2004-l1",
-            "sku": "cis-ubuntu2004-l1",
-            "version": "latest"
-          },
-          "osDisk": {
-            "osType": "Linux",
-            "name": "[format('{0}_OsDisk_1_c45556aabd8040dfb64ed4722a922feb', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]",
-            "createOption": "FromImage",
-            "caching": "ReadWrite",
-            "managedDisk": {
-              "storageAccountType": "Premium_LRS",
-              "id": "[resourceId('Microsoft.Compute/disks', format('{0}_OsDisk_1_c45556aabd8040dfb64ed4722a922feb', parameters('virtualMachines_vm_bastmasseysites_test_02_name')))]"
-            },
-            "deleteOption": "Delete",
-            "diskSizeGB": 30
-          },
-          "dataDisks": []
-        },
-        "osProfile": {
-          "computerName": "[parameters('virtualMachines_vm_bastmasseysites_test_02_name')]",
-          "adminUsername": "bastmasseysitestest02",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": true,
-            "ssh": {
-              "publicKeys": [
-                {
-                  "path": "/home/bastmasseysitestest02/.ssh/authorized_keys",
-                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsJYozV/pwCbyIc2HPkrKZGTzl45SNmog72DEQbEqdsf95QeYBpE04dfAIMvlsruJZbMv3KjRvl4+juv0aRrwlo6T9JMBye2HFYqesx7zd1BvYsE6aptpkHQgdYKnW+7BCHdO8zrLKbSH/mu/gcm3PoY/eQR6BUIY8lc7wcO5AvzZ91gkH4ezsgqRJHKLF49CYg081D3oLsj822Fpe7uWHo9D98gji/mvyCuMqspkYHHn4XkLJUsMs4iv2uSML/1f7z0lEpaGk6wOJ8V67/Csg2Kus1KF//tfIQSrpEbMVzt4fZ6i2ebfe8DsjWEr2o1C7LpmoXWJc5d2duzSBAMTQxVHXYldWNIjes28wV/fjHYNERpHGoq6XPpt6m38eKBUAwB59YddeLvsflTyI+LCQ7IvLewpfQhZZMkvEUukT16PVg8SxjdeytE+3Fuf7x6cKorDTfzTTAYPsCYgn5XwHxr/72XXa/VYctw+W59jxUMrt53kbL7kMbsnVA4sMUHk= generated-by-azure"
-                }
-              ]
-            },
-            "provisionVMAgent": true,
-            "patchSettings": {
-              "patchMode": "ImageDefault",
-              "assessmentMode": "ImageDefault"
-            },
-            "enableVMAgentPlatformUpdates": false
-          },
-          "secrets": [],
-          "allowExtensionOperations": true,
-          "requireGuestProvisionSignal": true
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_bastmasseysites_test_02591_z2_name'))]",
-              "properties": {
-                "deleteOption": "Detach"
-              }
-            }
-          ]
-        },
-        "diagnosticsProfile": {
-          "bootDiagnostics": {
-            "enabled": true
-          }
-        }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_vm_bastmasseysites_test_02591_z2_name'))]"
-      ]
-    },
-    {
       "type": "Microsoft.DBforMySQL/flexibleServers/backups",
       "apiVersion": "2021-12-01-preview",
       "name": "[format('{0}/{1}', parameters('flexibleServers_mysql_masseysites_test_02_server_name'), 'daily-20221201t072053-ad4cca11-709b-49b7-b9b3-b6b2aecc0a0f')]",
@@ -642,240 +522,6 @@
       ]
     },
     {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_Available_Memory_Bytes_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 100000000,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "Available Memory Bytes",
-              "operator": "LessThan",
-              "timeAggregation": "Average",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_Data_Disk_IOPS_Consumed_Percentage_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 95,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "Data Disk IOPS Consumed Percentage",
-              "operator": "GreaterThan",
-              "timeAggregation": "Average",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_Network_In_Total_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 500000000000,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "Network In Total",
-              "operator": "GreaterThan",
-              "timeAggregation": "Total",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_Network_Out_Total_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 200000000000,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "Network Out Total",
-              "operator": "GreaterThan",
-              "timeAggregation": "Total",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_OS_Disk_IOPS_Consumed_Percentage_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 95,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "OS Disk IOPS Consumed Percentage",
-              "operator": "GreaterThan",
-              "timeAggregation": "Average",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Insights/metricAlerts",
-      "apiVersion": "2018-03-01",
-      "name": "[parameters('metricAlerts_Percentage_CPU_vm_bastmasseysites_test_02_name')]",
-      "location": "Global",
-      "properties": {
-        "severity": 3,
-        "enabled": true,
-        "scopes": [
-          "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-        ],
-        "evaluationFrequency": "PT5M",
-        "windowSize": "PT5M",
-        "criteria": {
-          "allOf": [
-            {
-              "threshold": 80,
-              "name": "Metric1",
-              "metricNamespace": "Microsoft.Compute/virtualMachines",
-              "metricName": "Percentage CPU",
-              "operator": "GreaterThan",
-              "timeAggregation": "Average",
-              "criterionType": "StaticThresholdCriterion"
-            }
-          ],
-          "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
-        },
-        "targetResourceType": "Microsoft.Compute/virtualMachines",
-        "actions": [
-          {
-            "actionGroupId": "[parameters('actiongroups_RecommendedAlertRules_AG_1_externalid')]",
-            "webHookProperties": {}
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_vm_bastmasseysites_test_02_name'))]"
-      ]
-    },
-    {
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2022-05-01",
       "name": "[parameters('networkInterfaces_pve_masseysites_test_02_nic_5e637949_0039_43cb_9083_bb75988eb2ab_name')]",
@@ -920,60 +566,6 @@
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks/subnets', split(format('{0}/app-masseysites-test-02KvSubnet', parameters('virtualNetworks_app_masseysites_test_02Vnet_name')), '/')[0], split(format('{0}/app-masseysites-test-02KvSubnet', parameters('virtualNetworks_app_masseysites_test_02Vnet_name')), '/')[1])]"
       ]
-    },
-    {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "apiVersion": "2022-05-01",
-      "name": "[parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name')]",
-      "location": "australiaeast",
-      "tags": {
-        "Environment": "test"
-      },
-      "properties": {
-        "securityRules": [
-          {
-            "name": "SSH",
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', split(format('{0}/SSH', parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name')), '/')[0], split(format('{0}/SSH', parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name')), '/')[1])]",
-            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "properties": {
-              "protocol": "TCP",
-              "sourcePortRange": "*",
-              "destinationPortRange": "22",
-              "sourceAddressPrefix": "130.123.0.0/16",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 300,
-              "direction": "Inbound",
-              "sourcePortRanges": [],
-              "destinationPortRanges": [],
-              "sourceAddressPrefixes": [],
-              "destinationAddressPrefixes": []
-            }
-          }
-        ]
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', split(format('{0}/SSH', parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name')), '/')[0], split(format('{0}/SSH', parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name')), '/')[1])]"
-      ]
-    },
-    {
-      "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-      "apiVersion": "2022-05-01",
-      "name": "[format('{0}/SSH', parameters('networkSecurityGroups_vm_bastmasseysites_test_02_nsg_name'))]",
-      "properties": {
-        "protocol": "TCP",
-        "sourcePortRange": "*",
-        "destinationPortRange": "22",
-        "sourceAddressPrefix": "130.123.0.0/16",
-        "destinationAddressPrefix": "*",
-        "access": "Allow",
-        "priority": 300,
-        "direction": "Inbound",
-        "sourcePortRanges": [],
-        "destinationPortRanges": [],
-        "sourceAddressPrefixes": [],
-        "destinationAddressPrefixes": []
-      }
     },
     {
       "type": "Microsoft.Network/privateDnsZones/A",
@@ -1063,21 +655,6 @@
             "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
           }
         ],
-        "privateEndpointNetworkPolicies": "Disabled",
-        "privateLinkServiceNetworkPolicies": "Enabled"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_app_masseysites_test_02Vnet_name'))]"
-      ]
-    },
-    {
-      "type": "Microsoft.Network/virtualNetworks/subnets",
-      "apiVersion": "2022-05-01",
-      "name": "[format('{0}/app-masseysites-test-02BastSubnet', parameters('virtualNetworks_app_masseysites_test_02Vnet_name'))]",
-      "properties": {
-        "addressPrefix": "10.0.3.0/29",
-        "serviceEndpoints": [],
-        "delegations": [],
         "privateEndpointNetworkPolicies": "Disabled",
         "privateLinkServiceNetworkPolicies": "Enabled"
       },
@@ -1643,59 +1220,6 @@
       ]
     },
     {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2022-05-01",
-      "name": "[parameters('networkInterfaces_vm_bastmasseysites_test_02591_z2_name')]",
-      "location": "australiaeast",
-      "tags": {
-        "Environment": "test"
-      },
-      "kind": "Regular",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
-            "properties": {
-              "privateIPAddress": "10.0.3.4",
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                "name": "vm-bastmasseysites-test-02-ip",
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_bastmasseysites_test_02_ip_name'))]",
-                "properties": {
-                  "publicIPAddressVersion": "IPv4",
-                  "publicIPAllocationMethod": "Dynamic",
-                  "idleTimeoutInMinutes": 4,
-                  "ipTags": [],
-                  "ipConfiguration": {},
-                  "deleteOption": "Detach"
-                },
-                "type": "Microsoft.Network/publicIPAddresses",
-                "sku": {
-                  "name": "Basic",
-                  "tier": "Regional"
-                }
-              },
-              "subnet": {},
-              "primary": true,
-              "privateIPAddressVersion": "IPv4"
-            }
-          }
-        ],
-        "dnsSettings": {
-          "dnsServers": []
-        },
-        "enableAcceleratedNetworking": false,
-        "enableIPForwarding": false,
-        "disableTcpStateTracking": false,
-        "networkSecurityGroup": {},
-        "nicType": "Standard"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_vm_bastmasseysites_test_02_ip_name'))]"
-      ]
-    },
-    {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2022-05-01",
       "name": "[parameters('virtualNetworks_app_masseysites_test_02Vnet_name')]",
@@ -1751,17 +1275,6 @@
                   "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
                 }
               ],
-              "privateEndpointNetworkPolicies": "Disabled",
-              "privateLinkServiceNetworkPolicies": "Enabled"
-            },
-            "type": "Microsoft.Network/virtualNetworks/subnets"
-          },
-          {
-            "name": "app-masseysites-test-02BastSubnet",
-            "properties": {
-              "addressPrefix": "10.0.3.0/29",
-              "serviceEndpoints": [],
-              "delegations": [],
               "privateEndpointNetworkPolicies": "Disabled",
               "privateLinkServiceNetworkPolicies": "Enabled"
             },
